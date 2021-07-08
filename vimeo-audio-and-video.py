@@ -16,7 +16,8 @@ for line in open(args.url_list):
     print('\n\n\nProcessing %s' % output_file)
 
     # Extract some stuff
-    base_url = master_json_url[:master_json_url.rfind('/', 0, -26) + 1]
+    base_url_index = master_json_url.rfind('/video/') + 7
+    base_url = master_json_url[:base_url_index]
     resp = requests.get(master_json_url)
     content = resp.json()
 
